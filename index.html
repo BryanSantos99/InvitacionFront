@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pao's Birthday — Legalmente Mayor 🎉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Satisfy&family=Raleway:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #F5F0E0;
+  --red:   #CC1F2B;
+  --dark:  #1A1A1A;
+  --silver:#B8B8B8;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 0 60px;
+  position: relative;
+  background: var(--cream);
+  min-height: 100vh;
+}
+
+/* ── Decoraciones SVG de fondo ── */
+.deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Bola disco top-left */
+.deco-disco-tl {
+  top: -10px; left: -30px;
+  width: 160px; opacity: .85;
+}
+
+/* Estrella roja */
+.deco-stars-tl {
+  top: 60px; left: 10px;
+  width: 90px;
+}
+
+/* Labios top-center */
+.deco-lips-tr {
+  top: 0px; right: 20px;
+  width: 120px; opacity: .9;
+}
+
+/* Número 18 */
+.deco-18 {
+  top: 10px; right: 10px;
+  width: 110px;
+}
+
+/* Copa izquierda */
+.deco-copa-l {
+  top: 200px; left: 0px;
+  width: 70px;
+}
+
+/* Estrella derecha */
+.deco-stars-r {
+  top: 280px; right: 5px;
+  width: 80px;
+}
+
+/* Estrella bottom-left */
+.deco-stars-bl {
+  bottom: 350px; left: 5px;
+  width: 90px;
+}
+
+/* Copa bottom-right */
+.deco-copa-br {
+  bottom: 380px; right: 5px;
+  width: 70px;
+}
+
+/* Bola disco bottom-left */
+.deco-disco-bl {
+  bottom: 180px; left: -20px;
+  width: 130px; opacity: .8;
+}
+
+/* Labios bottom-center */
+.deco-lips-bc {
+  bottom: 230px; left: 50%;
+  transform: translateX(-60%);
+  width: 100px; opacity: .85;
+}
+
+/* Bola disco bottom-right */
+.deco-disco-br {
+  bottom: 100px; right: -20px;
+  width: 150px; opacity: .8;
+}
+
+/* Estrellas bottom-right */
+.deco-stars-br {
+  bottom: 270px; right: 0;
+  width: 80px;
+}
+
+/* Destellos (sparkles) */
+.deco-spark {
+  font-size: 18px;
+  color: var(--red);
+  position: absolute;
+  z-index: 0;
+  animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .3; transform: scale(.7); }
+  to   { opacity: 1;  transform: scale(1.2); }
+}
+
+/* ── Contenido ── */
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 110px 16px 20px;
+}
+
+.hero-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(3rem, 11vw, 4.2rem);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.hero-sub {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 32px;
+}
+
+/* Sección de detalles */
+.section {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-q {
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.section-val {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.9rem, 7vw, 2.6rem);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+.section-val-sm {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  font-weight: 700;
+  color: var(--dark);
+}
+
+/* Dress code */
+.dress {
+  text-align: center;
+  margin: 8px 0 24px;
+}
+
+.dress-text {
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+/* Traer */
+.traer {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.traer-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  color: var(--dark);
+}
+
+/* Countdown */
+.countdown-wrap {
+  margin: 4px 0 28px;
+}
+
+.cd-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.cd-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 8px;
+}
+
+.cd-box {
+  background: var(--dark);
+  border-radius: 10px;
+  text-align: center;
+  padding: 12px 4px 10px;
+}
+
+.cd-num {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  line-height: 1;
+}
+
+.cd-box:nth-child(2) .cd-num { color: var(--red); }
+.cd-box:nth-child(3) .cd-num { color: var(--silver); }
+.cd-box:nth-child(4) .cd-num { color: #ccc; }
+
+.cd-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #666;
+  display: block;
+  margin-top: 3px;
+}
+
+/* Confirma section */
+.confirma-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.confirma-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.confirma-line {
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+  width: 80px;
+  margin: 0 auto;
+  transform: rotate(-1deg);
+}
+
+/* Mapa btn */
+.map-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  background: transparent;
+  border: 2px solid var(--dark);
+  border-radius: 50px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.map-btn:hover { background: var(--dark); color: var(--cream); }
+
+/* Form */
+.form-lbl {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+
+.form-lbl:first-of-type { margin-top: 0; }
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.6);
+  border: 1.5px solid #C8BFA0;
+  border-radius: 8px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+  outline: none;
+  transition: border-color .2s;
+}
+
+.form-input:focus { border-color: var(--red); }
+.form-input::placeholder { color: #BBB0A0; }
+.form-input:disabled { opacity: .5; }
+
+.submit-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  background: var(--dark);
+  color: var(--cream);
+  border: none;
+  border-radius: 50px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+
+.submit-btn:hover:not(:disabled) { opacity: .85; }
+.submit-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.status {
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+  display: none;
+}
+
+.status.ok  { background: #E8F5E1; border: 1.5px solid #5A9A3A; color: #2E6010; display: block; }
+.status.err { background: #FDE8E8; border: 1.5px solid var(--red); color: var(--red); display: block; }
+
+.footer {
+  text-align: center;
+  padding: 32px 16px 0;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem;
+  color: #888;
+}
+
+.sep {
+  width: 2px;
+  height: 30px;
+  background: var(--red);
+  margin: 0 auto 28px;
+  border-radius: 2px;
+  transform: rotate(2deg);
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Decoraciones ── -->
+
+  <!-- Bola disco top-left -->
+  <svg class="deco deco-disco-tl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="dg1" cx="40%" cy="35%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#888"/>
+      </radialGradient>
+      <clipPath id="cp1"><circle cx="100" cy="100" r="90"/></clipPath>
+    </defs>
+    <circle cx="100" cy="100" r="90" fill="#333" clip-path="url(#cp1)"/>
+    <g clip-path="url(#cp1)">
+      <!-- tiles -->
+      <g fill="none" stroke="#666" stroke-width=".5">
+        <line x1="10" y1="40"  x2="190" y2="40"/>
+        <line x1="10" y1="60"  x2="190" y2="60"/>
+        <line x1="10" y1="80"  x2="190" y2="80"/>
+        <line x1="10" y1="100" x2="190" y2="100"/>
+        <line x1="10" y1="120" x2="190" y2="120"/>
+        <line x1="10" y1="140" x2="190" y2="140"/>
+        <line x1="10" y1="160" x2="190" y2="160"/>
+        <line x1="40" y1="10"  x2="40" y2="190"/>
+        <line x1="60" y1="10"  x2="60" y2="190"/>
+        <line x1="80" y1="10"  x2="80" y2="190"/>
+        <line x1="100" y1="10" x2="100" y2="190"/>
+        <line x1="120" y1="10" x2="120" y2="190"/>
+        <line x1="140" y1="10" x2="140" y2="190"/>
+        <line x1="160" y1="10" x2="160" y2="190"/>
+      </g>
+      <!-- mirror tiles -->
+      <rect x="41" y="41" width="18" height="18" fill="#C8C8C8" rx="1" opacity=".9"/>
+      <rect x="61" y="61" width="18" height="18" fill="#E0E0E0" rx="1" opacity=".9"/>
+      <rect x="81" y="41" width="18" height="18" fill="#A0A0A0" rx="1" opacity=".8"/>
+      <rect x="101" y="61" width="18" height="18" fill="#D0D0D0" rx="1" opacity=".9"/>
+      <rect x="121" y="41" width="18" height="18" fill="#B8B8B8" rx="1" opacity=".85"/>
+      <rect x="61" y="81" width="18" height="18" fill="#fff" rx="1" opacity=".95"/>
+      <rect x="101" y="81" width="18" height="18" fill="#C0C0C0" rx="1" opacity=".9"/>
+      <rect x="141" y="61" width="18" height="18" fill="#E8E8E8" rx="1" opacity=".85"/>
+      <rect x="81" y="101" width="18" height="18" fill="#D8D8D8" rx="1" opacity=".9"/>
+      <rect x="121" y="101" width="18" height="18" fill="#fff" rx="1" opacity=".95"/>
+      <rect x="61" y="121" width="18" height="18" fill="#B0B0B0" rx="1" opacity=".8"/>
+      <rect x="101" y="121" width="18" height="18" fill="#E0E0E0" rx="1" opacity=".9"/>
+      <rect x="141" y="101" width="18" height="18" fill="#C8C8C8" rx="1" opacity=".85"/>
+      <rect x="81" y="141" width="18" height="18" fill="#D0D0D0" rx="1" opacity=".9"/>
+      <rect x="121" y="141" width="18" height="18" fill="#B8B8B8" rx="1" opacity=".85"/>
+      <!-- highlights -->
+      <circle cx="72" cy="68" r="6" fill="#fff" opacity=".6"/>
+      <circle cx="110" cy="55" r="4" fill="#fff" opacity=".5"/>
+    </g>
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#555" stroke-width="1"/>
+    <!-- hanger -->
+    <line x1="100" y1="10" x2="100" y2="0" stroke="#888" stroke-width="3"/>
+  </svg>
+
+  <!-- Estrellas rojo top-left -->
+  <svg class="deco deco-stars-tl" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(20,20)">
+      <polygon points="40,0 49,29 80,29 56,47 65,76 40,59 15,76 24,47 0,29 31,29" fill="#CC1F2B" stroke="#1A1A1A" stroke-width="3" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(0,55) scale(.6)">
+      <polygon points="40,0 49,29 80,29 56,47 65,76 40,59 15,76 24,47 0,29 31,29" fill="#CC1F2B" stroke="#1A1A1A" stroke-width="4" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(60,65) scale(.5)">
+      <polygon points="40,0 49,29 80,29 56,47 65,76 40,59 15,76 24,47 0,29 31,29" fill="#CC1F2B" stroke="#1A1A1A" stroke-width="4" stroke-linejoin="round"/>
+    </g>
+  </svg>
+
+  <!-- Labios top-right -->
+  <svg class="deco deco-lips-tr" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+    <g opacity=".9">
+      <path d="M20,40 Q40,10 80,25 Q120,10 140,40 Q120,70 80,60 Q40,70 20,40Z" fill="#CC1F2B"/>
+      <path d="M20,40 Q40,55 80,45 Q120,55 140,40" fill="none" stroke="#AA1020" stroke-width="1.5"/>
+      <path d="M45,32 Q60,22 80,25 Q100,22 115,32" fill="rgba(255,255,255,.15)" stroke="none"/>
+      <ellipse cx="80" cy="53" rx="20" ry="6" fill="#AA1020" opacity=".5"/>
+    </g>
+  </svg>
+
+  <!-- 18 globo -->
+
+    <!-- "1" -->
+    <g transform="translate(8,5)">
+      <rect x="18" y="5" width="14" height="70" rx="5" fill="url(#sg1)"/>
+      <rect x="5" y="5" width="14" height="14" rx="4" fill="url(#sg1)"/>
+      <defs>
+        <linearGradient id="sg1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#E8E8E8"/>
+          <stop offset="50%" stop-color="#C0C0C0"/>
+          <stop offset="100%" stop-color="#989898"/>
+        </linearGradient>
+      </defs>
+    </g>
+    <!-- "8" -->
+    <g transform="translate(48,5)">
+      <defs>
+        <linearGradient id="sg2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#E8E8E8"/>
+          <stop offset="50%" stop-color="#C0C0C0"/>
+          <stop offset="100%" stop-color="#989898"/>
+        </linearGradient>
+      </defs>
+      <rect x="5" y="5"  width="48" height="30" rx="15" fill="url(#sg2)"/>
+      <rect x="5" y="40" width="48" height="30" rx="15" fill="url(#sg2)"/>
+      <rect x="5" y="5"  width="48" height="65" rx="15" fill="none" stroke="#AAAAAA" stroke-width="2"/>
+      <ellipse cx="29" cy="20" rx="16" ry="10" fill="rgba(255,255,255,.3)"/>
+      <ellipse cx="29" cy="55" rx="16" ry="10" fill="rgba(255,255,255,.25)"/>
+    </g>
+  </svg>
+
+  <!-- Copa izquierda -->
+  <svg class="deco deco-copa-l" viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#CC1F2B" stroke-width="2.5" stroke-linecap="round">
+      <path d="M15,10 Q5,40 25,60 L40,65 L55,60 Q75,40 65,10Z"/>
+      <path d="M30,25 Q35,45 40,55"/>
+      <line x1="40" y1="65" x2="40" y2="95"/>
+      <line x1="25" y1="95" x2="55" y2="95"/>
+      <!-- liquid -->
+      <path d="M18,30 Q30,55 62,30" fill="#CC1F2B" opacity=".3" stroke="none"/>
+      <path d="M18,30 Q30,55 62,30" fill="none" stroke="#CC1F2B" stroke-width="1" opacity=".5"/>
+    </g>
+  </svg>
+
+  <!-- Estrellas derecha -->
+  <svg class="deco deco-stars-r" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(10,10) scale(.85)">
+      <polygon points="40,0 49,29 80,29 56,47 65,76 40,59 15,76 24,47 0,29 31,29" fill="#CC1F2B" stroke="#1A1A1A" stroke-width="3.5" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(35,75) scale(.55)">
+      <polygon points="40,0 49,29 80,29 56,47 65,76 40,59 15,76 24,47 0,29 31,29" fill="#CC1F2B" stroke="#1A1A1A" stroke-width="4" stroke-linejoin="round"/>
+    </g>
+  </svg>
+
+  <!-- Estrellas bottom-left -->
+  <svg class="deco deco-stars-bl" viewBox="0 0 130 110" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(0,5) scale(.8)">
+      <polygon points="40,0 49,29 80,29 56,47 65,76 40,59 15,76 24,47 0,29 31,29" fill="#CC1F2B" stroke="#1A1A1A" stroke-width="3.5" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(55,30) scale(.65)">
+      <polygon points="40,0 49,29 80,29 56,47 65,76 40,59 15,76 24,47 0,29 31,29" fill="#CC1F2B" stroke="#1A1A1A" stroke-width="4" stroke-linejoin="round"/>
+    </g>
+  </svg>
+
+  <!-- Copa bottom-right -->
+  <svg class="deco deco-copa-br" viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#CC1F2B" stroke-width="2.5" stroke-linecap="round">
+      <path d="M15,10 Q5,40 25,60 L40,65 L55,60 Q75,40 65,10Z"/>
+      <path d="M30,25 Q35,45 40,55"/>
+      <line x1="40" y1="65" x2="40" y2="95"/>
+      <line x1="25" y1="95" x2="55" y2="95"/>
+      <path d="M18,30 Q30,55 62,30" fill="#CC1F2B" opacity=".3" stroke="none"/>
+    </g>
+  </svg>
+
+  <!-- Bola disco bottom-left -->
+  <svg class="deco deco-disco-bl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs><clipPath id="cp2"><circle cx="100" cy="100" r="90"/></clipPath></defs>
+    <circle cx="100" cy="100" r="90" fill="#2A2A2A" clip-path="url(#cp2)"/>
+    <g clip-path="url(#cp2)">
+      <g fill="none" stroke="#555" stroke-width=".5">
+        <line x1="10" y1="50" x2="190" y2="50"/><line x1="10" y1="70" x2="190" y2="70"/>
+        <line x1="10" y1="90" x2="190" y2="90"/><line x1="10" y1="110" x2="190" y2="110"/>
+        <line x1="10" y1="130" x2="190" y2="130"/><line x1="10" y1="150" x2="190" y2="150"/>
+        <line x1="50" y1="10" x2="50" y2="190"/><line x1="70" y1="10" x2="70" y2="190"/>
+        <line x1="90" y1="10" x2="90" y2="190"/><line x1="110" y1="10" x2="110" y2="190"/>
+        <line x1="130" y1="10" x2="130" y2="190"/><line x1="150" y1="10" x2="150" y2="190"/>
+      </g>
+      <rect x="51" y="51" width="18" height="18" fill="#C0C0C0" rx="1" opacity=".9"/>
+      <rect x="71" y="71" width="18" height="18" fill="#E0E0E0" rx="1"/>
+      <rect x="91" y="51" width="18" height="18" fill="#A8A8A8" rx="1" opacity=".8"/>
+      <rect x="111" y="71" width="18" height="18" fill="#D0D0D0" rx="1" opacity=".9"/>
+      <rect x="71" y="91" width="18" height="18" fill="#fff" rx="1" opacity=".95"/>
+      <rect x="111" y="91" width="18" height="18" fill="#C8C8C8" rx="1" opacity=".9"/>
+      <rect x="91" y="111" width="18" height="18" fill="#E0E0E0" rx="1" opacity=".9"/>
+      <rect x="131" y="111" width="18" height="18" fill="#fff" rx="1" opacity=".9"/>
+      <circle cx="80" cy="72" r="5" fill="#fff" opacity=".55"/>
+    </g>
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#444" stroke-width="1"/>
+  </svg>
+
+  <!-- Labios bottom-center -->
+  <svg class="deco deco-lips-bc" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20,40 Q40,10 80,25 Q120,10 140,40 Q120,70 80,60 Q40,70 20,40Z" fill="#CC1F2B" opacity=".85"/>
+    <path d="M20,40 Q40,55 80,45 Q120,55 140,40" fill="none" stroke="#AA1020" stroke-width="1.5"/>
+  </svg>
+
+  <!-- Bola disco bottom-right -->
+  <svg class="deco deco-disco-br" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs><clipPath id="cp3"><circle cx="100" cy="100" r="90"/></clipPath></defs>
+    <circle cx="100" cy="100" r="90" fill="#333" clip-path="url(#cp3)"/>
+    <g clip-path="url(#cp3)">
+      <g fill="none" stroke="#555" stroke-width=".5">
+        <line x1="10" y1="50" x2="190" y2="50"/><line x1="10" y1="70" x2="190" y2="70"/>
+        <line x1="10" y1="90" x2="190" y2="90"/><line x1="10" y1="110" x2="190" y2="110"/>
+        <line x1="10" y1="130" x2="190" y2="130"/>
+        <line x1="50" y1="10" x2="50" y2="190"/><line x1="70" y1="10" x2="70" y2="190"/>
+        <line x1="90" y1="10" x2="90" y2="190"/><line x1="110" y1="10" x2="110" y2="190"/>
+        <line x1="130" y1="10" x2="130" y2="190"/><line x1="150" y1="10" x2="150" y2="190"/>
+      </g>
+      <rect x="51" y="51" width="18" height="18" fill="#D0D0D0" rx="1" opacity=".9"/>
+      <rect x="91" y="71" width="18" height="18" fill="#fff" rx="1"/>
+      <rect x="131" y="51" width="18" height="18" fill="#B8B8B8" rx="1" opacity=".85"/>
+      <rect x="71" y="91" width="18" height="18" fill="#E0E0E0" rx="1" opacity=".9"/>
+      <rect x="111" y="91" width="18" height="18" fill="#C8C8C8" rx="1" opacity=".9"/>
+      <circle cx="100" cy="72" r="5" fill="#fff" opacity=".6"/>
+    </g>
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#444" stroke-width="1"/>
+  </svg>
+
+  <!-- Estrellas bottom-right -->
+  <svg class="deco deco-stars-br" viewBox="0 0 110 130" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(20,5) scale(.75)">
+      <polygon points="40,0 49,29 80,29 56,47 65,76 40,59 15,76 24,47 0,29 31,29" fill="#CC1F2B" stroke="#1A1A1A" stroke-width="4" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(0,70) scale(.55)">
+      <polygon points="40,0 49,29 80,29 56,47 65,76 40,59 15,76 24,47 0,29 31,29" fill="#CC1F2B" stroke="#1A1A1A" stroke-width="5" stroke-linejoin="round"/>
+    </g>
+  </svg>
+
+  <!-- Destellos flotantes -->
+  <span class="deco-spark" style="top:90px;left:80px;animation-delay:.3s">✦</span>
+  <span class="deco-spark" style="top:130px;left:60px;animation-delay:.9s;font-size:12px">✦</span>
+  <span class="deco-spark" style="top:85px;right:165px;animation-delay:.5s">✦</span>
+  <span class="deco-spark" style="top:110px;right:145px;animation-delay:1.2s;font-size:12px">✦</span>
+  <span class="deco-spark" style="top:330px;left:78px;animation-delay:.7s;font-size:14px">✦</span>
+  <span class="deco-spark" style="top:360px;right:80px;animation-delay:.2s">✦</span>
+
+  <!-- ── Contenido ── -->
+  <div class="content">
+
+    <div class="hero">
+      <div class="hero-title">Pao's birthday!</div>
+      <div class="hero-sub">Legalmente Mayor</div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap">
+      <div class="cd-label">Faltan...</div>
+      <div class="cd-grid" id="cd"></div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- Cuándo -->
+    <div class="section">
+      <div class="section-q">¿Cuándo?</div>
+      <div class="section-val">sábado 4 julio</div>
+      <div class="section-val-sm">6:45 pm — 2:00 am</div>
+      <div class="section-q">Musica En Vivo </div>
+    </div>
+
+    <!-- Dónde -->
+    <div class="section">
+      <div class="section-q">¿Dónde?</div>
+      <div class="section-val">quinta garcía</div>
+    </div>
+
+    <!-- Mapa -->
+    <a class="map-btn" href="#" onclick="openMap(event)">
+      📍 Ver ubicación en Maps
+    </a>
+
+    <!-- Dress code -->
+    <div class="dress">
+      <div class="dress-text">Dress code: Total Black</div>
+    </div>
+
+    <!-- Traer -->
+    <div class="traer">
+      <div class="traer-">traer lo que te gusta tomar!</div>
+    </div>
+
+    <div class="sep" style="transform:rotate(-2deg)"></div>
+
+    <!-- Confirma -->
+    <div class="confirma-header">
+      <div class="confirma-title">Confirma tu asistencia</div>
+      <div class="confirma-line"></div>
+    </div>
+
+    <label class="form-lbl" for="nombre">Tu nombre</label>
+    <input class="form-input" type="text" id="nombre" placeholder="Tu nombre completo" maxlength="80">
+
+    <label class="form-lbl" for="celular">Celular (10 dígitos)</label>
+    <input class="form-input" type="tel" id="celular" placeholder="33 1234 5678" maxlength="15">
+
+    <button class="submit-btn" id="rsvp-btn" onclick="enviarRSVP()">
+      Confirmar asistencia
+    </button>
+    <div class="status" id="status-msg"></div>
+
+  </div>
+
+  <div class="footer">Pao's 18 🖤</div>
+</div>
+
+<script>
+  const API_URL    = "http://localhost:5000";
+  const PARTY_DATE = new Date("2026-07-04T19:30:00");
+  const MAP_LAT    = 20.74886126236008;
+  const MAP_LNG    = -103.43791210737095;
+  const MAP_LABEL  = "Quinta García, Zapopan, Jalisco";
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function tick(){
+    const diff = PARTY_DATE - new Date();
+    const el   = document.getElementById('cd');
+    if(diff <= 0){
+      el.innerHTML = '<div style="grid-column:1/-1;text-align:center;font-family:Dancing Script,cursive;font-size:1.6rem;color:#CC1F2B;padding:10px">¡Hoy es la fiesta! 🎉</div>';
+      return;
+    }
+    const days = Math.floor(diff/864e5);
+    const hrs  = Math.floor(diff%864e5/36e5);
+    const min  = Math.floor(diff%36e5/6e4);
+    const sec  = Math.floor(diff%6e4/1e3);
+    el.innerHTML = `
+      <div class="cd-box"><span class="cd-num">${pad(days)}</span><span class="cd-lbl">Días</span></div>
+      <div class="cd-box"><span class="cd-num">${pad(hrs)}</span><span class="cd-lbl">Horas</span></div>
+      <div class="cd-box"><span class="cd-num">${pad(min)}</span><span class="cd-lbl">Min</span></div>
+      <div class="cd-box"><span class="cd-num">${pad(sec)}</span><span class="cd-lbl">Seg</span></div>`;
+  }
+
+  tick(); setInterval(tick, 1000);
+
+  function openMap(e){
+    e.preventDefault();
+    const enc   = encodeURIComponent(MAP_LABEL);
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    window.open(
+      isIOS ? `maps://?q=${enc}&ll=${MAP_LAT},${MAP_LNG}`
+            : `https://www.google.com/maps/search/?api=1&query=${MAP_LAT},${MAP_LNG}`,
+      '_blank'
+    );
+  }
+
+  async function enviarRSVP(){
+    const nombre  = document.getElementById('nombre').value.trim();
+    const celular = document.getElementById('celular').value.trim();
+    const btn     = document.getElementById('rsvp-btn');
+    document.getElementById('status-msg').className = 'status';
+
+    if(!nombre)  { showSt('err','Escribe tu nombre'); return; }
+    if(!celular) { showSt('err','Escribe tu celular'); return; }
+
+    btn.disabled = true; btn.textContent = 'Enviando...';
+
+    try{
+      const r    = await fetch(`${API_URL}/rsvp`,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({nombre,celular})
+      });
+      const data = await r.json();
+      if(r.ok){
+        showSt('ok', data.mensaje);
+        btn.textContent = '✓ Confirmado';
+        document.getElementById('nombre').disabled  = true;
+        document.getElementById('celular').disabled = true;
+      } else {
+        showSt('err', data.error||'Algo salió mal');
+        btn.disabled=false; btn.textContent='Confirmar asistencia';
+      }
+    } catch {
+      showSt('err','Sin conexión con la API');
+      btn.disabled=false; btn.textContent='Confirmar asistencia';
+    }
+  }
+
+  function showSt(type,msg){
+    const el = document.getElementById('status-msg');
+    el.className = `status ${type}`;
+    el.textContent = msg;
+  }
+</script>
+</body>
+</html>
