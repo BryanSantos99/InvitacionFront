@@ -753,7 +753,7 @@ body {
       const r    = await fetch(`${API_URL}/rsvp`,{
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({nombre,celular})
+        body: JSON.stringify({ slug_evento: 'cumpleanos-pao', nombre, celular })
       });
       const data = await r.json();
       if(r.ok){
